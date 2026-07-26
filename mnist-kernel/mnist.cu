@@ -396,7 +396,8 @@ float evaluate(cublasHandle_t handle, Network &network, const float *images,
     return 100.0F * correct / samples;
 }
 
-int run(int epochs, const std::filesystem::path &directory) {
+int run(int epochs) {
+    const std::filesystem::path directory{"data"};
     auto train_images =
         read_binary<float>(directory / "X_train.bin", TRAINING * INPUT);
     auto train_labels =
@@ -502,15 +503,14 @@ int run(int epochs, const std::filesystem::path &directory) {
 
 int main(int argc, char **argv) {
     try {
-        if (argc > 3) {
-            throw std::invalid_argument{
-                "usage: mnist [epochs] [data_directory]"};
+        if (argc > 2) {
+            throw std::invalid_argument{"usage: mnist [epochs]"};
         }
         const int epochs = argc > 1 ? std::stoi(argv[1]) : 20;
         if (epochs < 0 || epochs > 10'000) {
             throw std::invalid_argument{"epochs must be in [0, 10000]"};
         }
-        return run(epochs, argc > 2 ? argv[2] : "data");
+        return run(epochs);
     } catch (const std::exception &error) {
         std::cerr << "ERROR: " << error.what() << '\n';
         return 1;

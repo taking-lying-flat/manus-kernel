@@ -45,10 +45,11 @@ Run it with the default 20 epochs and `./data` directory:
 ./mnist-cuda
 ```
 
-The optional arguments are the number of epochs and a custom data directory:
+The only optional argument is the number of epochs. The CUDA program always
+loads the MNIST files from `./data`:
 
 ```bash
-./mnist-cuda 20 ./data
+./mnist-cuda 20
 ```
 
 ## Data
