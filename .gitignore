@@ -1,6 +1,6 @@
-/build/
-/cmake-build-*/
-/data/*.bin
+**/build/
+**/cmake-build-*/
+**/data/*.bin
 
 CMakeCache.txt
 CMakeFiles/
