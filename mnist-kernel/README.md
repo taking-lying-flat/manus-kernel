@@ -63,15 +63,3 @@ Place the four raw binary files below in `data/`:
 
 The dataset binaries are intentionally not tracked because `X_train.bin`
 exceeds GitHub's regular 100 MB per-file limit.
-
-## Run
-
-```bash
-./build/mnist-kernel
-```
-
-The optional arguments are the number of epochs and a custom data directory:
-
-```bash
-./build/mnist-kernel 20 ./data
-```
